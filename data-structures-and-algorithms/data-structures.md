@@ -1,4 +1,4 @@
-# data structures
+# 数据结构
 
 用javascript来模拟栈、队列、链表、集合、字典和树等数据结构。
 
@@ -186,7 +186,7 @@ class LinkedList {
 }
 ```
 
-### 双向链表——一个元素既指向下一个元素，页指向上一个元素
+### 双向链表——一个元素既指向下一个元素，也指向上一个元素
 
 ```js
 const DoubleNode = function (element) {
@@ -315,3 +315,11 @@ class DoublyLinkedList {
   }
 }
 ```
+
+## 集合
+
+集合是由一组无序且唯一(即不能重复)的项组成的，可以对其进行并集、交集和差集等基本操作。ES6中新增的`Set`类对应的就是*集合*，关于集合的详细内容可以参看[ECMAScript6入门](http://es6.ruanyifeng.com/#docs/set-map)。
+
+## 字典
+
+和集合类似，字典也是用来存储唯一值的一种数据结构。不同的是，在集合中，我们感兴趣的是每个值本身，在字典里，我们感兴趣的是*键值*对。ES6中新增的`Map`类对应的就是*字典*，关于字典的详细内容可以参看[ECMAScript6入门](http://es6.ruanyifeng.com/#docs/set-map)。
