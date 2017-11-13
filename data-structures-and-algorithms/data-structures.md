@@ -323,3 +323,168 @@ class DoublyLinkedList {
 ## 字典
 
 和集合类似，字典也是用来存储唯一值的一种数据结构。不同的是，在集合中，我们感兴趣的是每个值本身，在字典里，我们感兴趣的是*键值*对。ES6中新增的`Map`类对应的就是*字典*，关于字典的详细内容可以参看[ECMAScript6入门](http://es6.ruanyifeng.com/#docs/set-map)。
+
+## 二叉搜索树
+
+树——一种非顺序数据结构，对于储存需要快速查找的数据非常有用，本文我们将用js来模拟一种特殊的树“*二叉搜索树*”。
+
+```js
+  const Node = function (key) {
+    this.key = key
+    this.left = null
+    this.right = null
+  }
+
+  class BinarySearchTree {
+    constructor () {
+      this.root = null
+    }
+
+    insert (key) {
+      const insertNode = function (node, newNode) {
+        if (newNode.key < node.key) {
+          if (node.left === null) {
+            node.left = newNode
+          } else {
+            insertNode(node.left, newNode)
+          }
+        } else {
+          if (node.right === null) {
+            node.right = newNode
+          } else {
+            insertNode(node.right, newNode)
+          }
+        }
+      }
+      const node = new Node(key)
+      if (this.root === null) {
+        this.root = node
+      } else {
+        insertNode(this.root, node)
+      }
+    }
+
+    // 中序遍历: 左子树->根节点->右子树
+    inOrderTraverse (cb) {
+      const inOrderTraverseNode = function (node, cb) {
+        if (node !== null) {
+          inOrderTraverseNode(node.left, cb)
+          cb && cb(node.key)
+          inOrderTraverseNode(node.right, cb)
+        }
+      }
+      inOrderTraverseNode(this.root, cb)
+    }
+
+    // 前序遍历: 根节点->左子树->右子树
+    prevOrderTraverse (cb) {
+      const prevOrderTraverseNode = function (node, cb) {
+        if (node !== null) {
+          cb(node.key)
+          prevOrderTraverseNode(node.left, cb)
+          prevOrderTraverseNode(node.right, cb)
+        }
+      }
+      prevOrderTraverseNode(this.root, cb)
+    }
+
+    // 后序遍历: 左子树->右子树->根节点
+    postOrderTraverse (cb) {
+      const postOrderTraverseNode = function (node, cb) {
+        if (node !== null) {
+          postOrderTraverseNode(node.left, cb)
+          postOrderTraverseNode(node.right, cb)
+          cb(node.key)
+        }
+      }
+    }
+
+    getMinVal () {
+      const minNode = function (node) {
+        if (node) {
+          while (node.left !== null) {
+            node = node.left
+          }
+          return node.key
+        } else {
+          return null
+        }
+      }
+      return minNode(this.root)
+    }
+
+    getMaxVal () {
+      const maxNode = function (node) {
+        if (node) {
+          while (node.right !== null) {
+            node = node.right
+          }
+          return node.key
+        } else {
+          return null
+        }
+      }
+      return maxNode(this.root)
+    }
+
+    // 查找某个节点
+    search (key) {
+      const searchNode = function (node, key) {
+        if (node === null) {
+          return false
+        }
+        if (key < node.key) {
+          return searchNode(node.left, key)
+        } else if (key > node.key) {
+          return searchNode(node.right, key)
+        } else {
+          return true
+        }
+      }
+      return searchNode(this.root, key)
+    }
+
+    // 移除某个节点，返回新的二叉树
+    remove (key) {
+      const removeNode = function (node, key) {
+        if (node === null) {
+          return null
+        }
+        if (key < node.key) {
+          node.left = removeNode(node.left, key)
+          return node
+        } else if (key > node.key) {
+          node.right = removeNode(node.right, key)
+          return node
+        } else {
+          if (node.left === null && node.right === null) {
+            node = null
+            return node
+          }
+          if (node.left === null) {
+            node = node.right
+            return node
+          } else if (node.right === null) {
+            node = node.left
+            return node
+          }
+          const minNode = getMinNode(node.right)
+          node.key = minNode.key
+          node.right = removeNode(node.right, minNode.key)
+          return node
+        }
+      }
+      const getMinNode = function (node) {
+        if (node) {
+          while (node.left !== null) {
+            node = node.left
+          }
+          return node
+        } else {
+          return null
+        }
+      }
+      return removeNode(this.root, key)
+    }
+  }
+```
