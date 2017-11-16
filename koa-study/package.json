@@ -1,0 +1,15 @@
+{
+  "name": "koa-study",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jinchs",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "koa": "^2.4.1"
+  }
+}
