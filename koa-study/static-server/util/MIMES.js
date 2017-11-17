@@ -20,4 +20,4 @@ const mimes = {
   'xml': 'text/xml'
 }
 
-export default mimes
+module.exports = mimes

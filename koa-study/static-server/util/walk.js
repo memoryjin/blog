@@ -13,4 +13,4 @@ function walk (path) {
   return dirList.concat(fileList)
 }
 
-export default walk
+module.exports = walk

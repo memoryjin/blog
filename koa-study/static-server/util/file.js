@@ -4,4 +4,4 @@ function file (path) {
   return fs.readFileSync(path, 'binary')
 }
 
-export default file
+module.exports = file
