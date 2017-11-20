@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>post data via ajax</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+</head>
+<body>
+  <h2>Koa2 request post demo</h2>
+  <form id="form">
+    <p>userName</p>
+    <input type="text" name="userName">
+    <br>
+    <p>age</p>
+    <input type="text" name="age">
+    <br>
+    <button class="submit" type="submit">提交</button>
+  </form>
+  <script>
+    const formEl = document.querySelector('#form')
+    const inputEls = document.querySelectorAll('input')
+    const submitBtn = document.querySelector('.submit')
+    formEl.addEventListener('submit', e => {
+      e.preventDefault()
+      const params = {
+        userName: inputEls[0].value,
+        age: inputEls[1].value
+      }
+      axios.post('/postByAjax', params).then(res => {
+        const data = res.data
+        inputEls[0].value = data.userName + '_by_ajax'
+        inputEls[1].value = data.age + '_by_ajax'
+      })
+    })
+  </script>
+</body>
+</html>

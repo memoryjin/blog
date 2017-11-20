@@ -28,6 +28,8 @@ const parsePostData = function (ctx) {
   return new Promise((resolve, reject) => {
     try {
       let postData = ''
+
+      // 关于'data'和'end'两事件的详细信息可参看Class: http.ClientRequest
       ctx.req.addListener('data', data => {
         postData += data
       })

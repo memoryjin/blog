@@ -1,2 +1,4 @@
 .DS_Store
 typescript
+koa-study/node_modules/
+koa-study/package-lock.json
