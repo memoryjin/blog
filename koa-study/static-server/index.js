@@ -16,20 +16,20 @@ const parseMime = function (url) {
 app.use(async ctx => {
   const fullStaticPath = path.join(__dirname, staticPath)
 
-  const _content = content(ctx, fullStaticPath)
+  const outPut = content(ctx, fullStaticPath)
 
-  const _mime = parseMime(ctx.url)
+  const mime = parseMime(ctx.url)
 
-  if (_mime) {
-    ctx.type = _mime
+  if (mime) {
+    ctx.type = mime
   }
 
-  if (_mime && _mime.indexOf('image/') > -1) {
+  if (mime && mime.indexOf('image/') > -1) {
     ctx.res.writeHead(200)
-    ctx.res.write(_content, 'binary')
+    ctx.res.write(outPut, 'binary')
     ctx.res.end()
   } else {
-    ctx.body = _content
+    ctx.body = outPut
   }
 })
 

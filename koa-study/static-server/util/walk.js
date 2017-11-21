@@ -8,7 +8,7 @@ function walk (path) {
   for (let file of files) {
     const itemArr = file.split('.')
     const itemMime = itemArr.length > 1 ? itemArr[itemArr.length - 1] : ''
-    itemMime ? fileList.push(file) : dirList.push(file)
+    typeof MIMES[itemMime] !== 'undefined' ? fileList.push(file) : dirList.push(file)
   }
   return dirList.concat(fileList)
 }
