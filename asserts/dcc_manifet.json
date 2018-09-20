@@ -1,11 +1,52 @@
 {
-  "name": "DCC智能制造平台",
-  "short_name": "DCC",
-  "start_url": "index.html",
-  "display": "standalone",
-  "icons": [{
-    "src": "https://img.alicdn.com/tfs/TB13AekIxGYBuNjy0FnXXX5lpXa-1155-1155.png",
-    "sizes": "192x192",
-    "type": "image/png"
-  }]
+  "name": "DCC-产线平衡",
+  "short_name": "产线平衡",
+  "theme_color": "#2196f3",
+  "background_color": "#2196f3",
+  "display": "fullscreen",
+  "Scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "https://img.alicdn.com/tfs/TB19kMDbNjaK1RjSZKzXXXVwXXa-72-72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "https://img.alicdn.com/tfs/TB1fmgDbNnaK1RjSZFBXXcW7VXa-72-72.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "https://img.alicdn.com/tfs/TB1nBgkbFzqK1RjSZSgXXcpAVXa-72-72.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "https://img.alicdn.com/tfs/TB1K3sjbMTqK1RjSZPhXXXfOFXa-72-72.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "https://img.alicdn.com/tfs/TB1hIAlbNTpK1RjSZFGXXcHqFXa-72-72.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "https://img.alicdn.com/tfs/TB1fmgDbNnaK1RjSZFBXXcW7VXa-72-72.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://img.alicdn.com/tfs/TB1tk3lbNTpK1RjSZR0XXbEwXXa-72-72.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "https://img.alicdn.com/tfs/TB1eRckbMHqK1RjSZFgXXa7JXXa-72-72.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "splash_pages": null
 }
