@@ -1,0 +1,11 @@
+{
+  "name": "DCC智能制造平台",
+  "short_name": "DCC",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "https://img.alicdn.com/tfs/TB13AekIxGYBuNjy0FnXXX5lpXa-1155-1155.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }]
+}
